@@ -6,7 +6,11 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   define: {
-    'import.meta.env.VITE_API_URL': JSON.stringify(process.env.VITE_API_URL || 'https://ethereal-5x0p.onrender.com/api')
+    'import.meta.env.VITE_API_URL': JSON.stringify(
+      process.env.NODE_ENV === 'development' 
+        ? 'http://localhost:5000/api' 
+        : 'https://ethereal-5x0p.onrender.com/api'
+    )
   },
   server: {
     host: true, // Listen on all local IPs (0.0.0.0)
