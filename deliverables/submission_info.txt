@@ -2,23 +2,21 @@ FINAL SUBMISSION DELIVERABLES
 --------------------------------------------------
 
 1. Shopify Preview Link / Store URL (LIVE):
-https://ethereal-4.onrender.com/
+https://ethereal-5.onrender.com/
 
 2. Backend API URL (LIVE):
 https://ethereal-5x0p.onrender.com
 
 3. Admin Access (Partner Account Login):
-URL: https://ethereal-4.onrender.com/login
-Email: admin@ethereal.com
-Password: password123
-(You can share these credentials with your reviewer to demonstrate the backend functionality).
+URL: https://ethereal-5.onrender.com/login
+
+ email: 'admin@ethereal.com', password: 'password123',
+
 
 3. Product CSV File:
 Located in this folder: `products_export.csv`
 
-4. Image Folders:
-Empty folders (`original` and `background-removed`) have been generated in this directory. 
-Please drop the raw Unsplash images in `original` and any isolated product shots in `background-removed` before zipping this folder!
+
 
 --------------------------------------------------
 CORE LEARNING OBJECTIVES MET:
