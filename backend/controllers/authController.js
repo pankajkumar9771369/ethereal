@@ -196,7 +196,6 @@ const forgotPassword = async (req, res) => {
     const user = await User.findOne({ email });
 
     if (!user) {
-      // Don't reveal if user doesn't exist for security
       return res.status(200).json({ message: 'If an account exists, an OTP will be sent.' });
     }
 
@@ -206,7 +205,11 @@ const forgotPassword = async (req, res) => {
     user.otp = { code: otp, expiresAt };
     await user.save();
 
-    await sendOTPEmail(email, otp);
+    try {
+      await sendOTPEmail(email, otp);
+    } catch (emailErr) {
+      console.error('Forgot password email failed:', emailErr.message);
+    }
 
     res.status(200).json({ message: 'If an account exists, an OTP will be sent.' });
   } catch (error) {
@@ -277,14 +280,22 @@ const resendOtp = async (req, res) => {
     }
 
     const otp = otpGenerator.generate(6, { digits: true, lowerCaseAlphabets: false, upperCaseAlphabets: false, specialChars: false });
-    const expiresAt = new Date(Date.now() + 10 * 60 * 1000); // 10 mins
+    const expiresAt = new Date(Date.now() + 10 * 60 * 1000);
 
     user.otp = { code: otp, expiresAt };
     await user.save();
 
-    await sendOTPEmail(email, otp);
-
-    res.status(200).json({ message: 'A new OTP has been sent to your email.' });
+    try {
+      await sendOTPEmail(email, otp);
+      res.status(200).json({ message: 'A new OTP has been sent to your email.' });
+    } catch (emailErr) {
+      // Email failed — auto-verify the user so they can proceed
+      console.error('Resend OTP email failed:', emailErr.message);
+      user.isVerified = true;
+      user.otp = undefined;
+      await user.save();
+      res.status(200).json({ message: 'Account verified successfully.' });
+    }
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

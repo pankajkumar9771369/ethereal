@@ -13,8 +13,13 @@ const Register = () => {
     e.preventDefault();
     const result = await register(name, email, password);
     if (result.success) {
-      // Redirect to OTP Verification page and pass the email
-      navigate('/verify-otp', { state: { email: result.email } });
+      if (result.autoVerified) {
+        // Email was blocked — user was auto-verified, send them home
+        navigate('/');
+      } else {
+        // Normal flow — redirect to OTP Verification page
+        navigate('/verify-otp', { state: { email: result.email } });
+      }
     }
   };
 

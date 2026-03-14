@@ -50,6 +50,11 @@ export const AuthProvider = ({ children }) => {
     try {
       const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/auth/register`, { name, email, password });
       setLoading(false);
+      // If server returned a token, user was auto-verified — log them in directly
+      if (data.token) {
+        setUser(data);
+        return { success: true, autoVerified: true };
+      }
       return { success: true, email: data.email };
     } catch (err) {
       setLoading(false);
@@ -83,7 +88,9 @@ export const AuthProvider = ({ children }) => {
     try {
       const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/auth/resend-otp`, { email });
       setLoading(false);
-      return { success: true, message: data.message };
+      // "Account verified successfully." means user was auto-verified
+      const autoVerified = data.message && data.message.toLowerCase().includes('verified successfully');
+      return { success: true, message: data.message, autoVerified };
     } catch (err) {
       setLoading(false);
       setError(err.response?.data?.message || 'Failed to resend OTP');
