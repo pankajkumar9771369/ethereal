@@ -15,7 +15,8 @@ const app = express();
 const allowedOrigins = [
   'http://localhost:5173',
   'http://localhost:4173', 
-  'https://ethereal-4.onrender.com'
+  'https://ethereal-4.onrender.com',
+  'https://ethereal-5.onrender.com'
 ];
 
 app.use(cors({
