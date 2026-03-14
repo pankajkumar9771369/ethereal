@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && echo '/* /index.html 200' > dist/_redirects",
+    "build": "vite build && node fix-routing.js",
     "lint": "eslint .",
     "preview": "vite preview --host 0.0.0.0",
     "start": "npm run preview"

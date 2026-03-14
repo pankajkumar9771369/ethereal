@@ -2,24 +2,9 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
-const spaFallback = () => ({
-  name: 'spa-fallback',
-  configurePreviewServer(server) {
-    server.middlewares.use((req, res, next) => {
-      // If the request is for a file (has an extension) or API, skip it
-      if (req.url.includes('.') || req.url.startsWith('/api')) {
-        return next();
-      }
-      // Otherwise rewrite to index.html for SPA routing
-      req.url = '/index.html';
-      next();
-    });
-  }
-});
-
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss(), spaFallback()],
+  plugins: [react(), tailwindcss()],
   define: {
     'import.meta.env.VITE_API_URL': JSON.stringify(
       process.env.NODE_ENV === 'development' 
