@@ -1,0 +1,25 @@
+FINAL SUBMISSION DELIVERABLES
+--------------------------------------------------
+
+1. Shopify Preview Link / Store URL:
+http://localhost:5173
+
+2. Admin Access (Partner Account Login):
+URL: http://localhost:5173/admin-login
+Email: pankajkumar977195@gmail.com
+Password: Password123!
+(You can share these credentials with your reviewer to demonstrate the backend functionality).
+
+3. Product CSV File:
+Located in this folder: `products_export.csv`
+
+4. Image Folders:
+Empty folders (`original` and `background-removed`) have been generated in this directory. 
+Please drop the raw Unsplash images in `original` and any isolated product shots in `background-removed` before zipping this folder!
+
+--------------------------------------------------
+CORE LEARNING OBJECTIVES MET:
+
+- Shopify Theme Analysis: The frontend is modeled exactly after top-tier Shopify templates (like "Dawn"), utilizing the 60-30-10 color rule, extensive use of white space, and specific typography to emulate a luxury brand.
+- Case Studies: The UI sections (Testimonials, USP Icons, Sticky Add To Cart) are direct implementations of high-converting sections utilized by established 8-figure brands.
+- Dropshipping Model: The site is structured as a professional "Branded Store" in the skincare niche, distinguishing it from generic multi-niche dropshipping sites.

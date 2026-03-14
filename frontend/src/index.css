@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #8a9a86; /* Sage/Eucalyptus green */
+  --color-secondary: #f4f4f0; /* Off-white/cream */
+  --color-accent: #c4a484; /* Soft earthy brown/gold */
+  --color-dark: #2c352b; /* Deep slate green for text */
+}
+
+@theme {
+  --color-sage: var(--color-primary);
+  --color-cream: var(--color-secondary);
+  --color-earth: var(--color-accent);
+  --color-slate: var(--color-dark);
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-slate);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom Utilities for High-End Feel */
+.glass-effect {
+  background: rgba(244, 244, 240, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(138, 154, 134, 0.1);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--color-dark), var(--color-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
