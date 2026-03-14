@@ -27,13 +27,7 @@ const importData = async () => {
     // Insert products
     await Product.insertMany(products);
 
-    // Seed discount codes
-    await Discount.insertMany([
-      { code: 'ETHEREAL10', type: 'percentage', value: 10, minOrder: 0, active: true },
-      { code: 'FREESHIP', type: 'free_shipping', value: 0, minOrder: 25, active: true },
-      { code: 'SAVE15', type: 'fixed', value: 15, minOrder: 60, active: true },
-      { code: 'WELCOME5', type: 'percentage', value: 5, minOrder: 0, active: true },
-    ]);
+  
 
     console.log('Data Imported!');
     process.exit();
