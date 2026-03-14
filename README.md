@@ -2,6 +2,11 @@
 
 A full-stack, production-ready MERN e-commerce application built to replicate a modern Shopify storefront. 
 
+## 🌐 Live Demo
+- **Frontend (Storefront):** [https://ethereal-4.onrender.com/](https://ethereal-4.onrender.com/)
+- **Backend (API):** [https://ethereal-5x0p.onrender.com](https://ethereal-5x0p.onrender.com)
+  - *Note: The backend may take up to 50 seconds to spin up on the first request if it has been inactive.*
+
 ## 🚀 Features
 
 ### Customer Features (Frontend)

@@ -1,13 +1,16 @@
 FINAL SUBMISSION DELIVERABLES
 --------------------------------------------------
 
-1. Shopify Preview Link / Store URL:
-http://localhost:5173
+1. Shopify Preview Link / Store URL (LIVE):
+https://ethereal-4.onrender.com/
 
-2. Admin Access (Partner Account Login):
-URL: http://localhost:5173/admin-login
-Email: pankajkumar977195@gmail.com
-Password: Password123!
+2. Backend API URL (LIVE):
+https://ethereal-5x0p.onrender.com
+
+3. Admin Access (Partner Account Login):
+URL: https://ethereal-4.onrender.com/login
+Email: admin@ethereal.com
+Password: password123
 (You can share these credentials with your reviewer to demonstrate the backend functionality).
 
 3. Product CSV File:
